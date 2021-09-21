@@ -50,7 +50,7 @@ install:
 #       build configuration       #
 #---------------------------------#
 
-
+build: off
 
 # scripts to run before build
 before_build:
