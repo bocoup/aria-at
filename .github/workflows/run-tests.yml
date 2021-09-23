@@ -1,0 +1,29 @@
+name: Run Tests on Windows Server 2019
+
+on: [push, pull_request]
+
+jobs:
+  run-tests:
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Generate test files
+      run: npm run create-all-tests
+      # TODO re-use generated tests from generate-and-commit-files.yml somehow?
+
+    - name: Install browser (Chrome Stable)
+      run: $Path = $env:TEMP; $Installer = "chrome_installer.exe"; Invoke-WebRequest "http://dl.google.com/chrome/chrome_installer.exe" -OutFile $Path\$Installer; Start-Process -FilePath $Path\$Installer -Args "/silent /install" -Verb RunAs -Wait; Remove-Item $Path\$Installer
+      shell: powershell
+
+    - name: Run automated tests
+      run: echo NOT IMPLEMENTED
