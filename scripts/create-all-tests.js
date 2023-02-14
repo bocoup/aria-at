@@ -55,17 +55,21 @@ async function main() {
     process.exit();
   }
 
-  const filteredTests = await Promise.all(
-    filteredTestPlans.map(directory =>
-      createExampleTests({
+  const filteredTests = [];
+
+  try {
+    for (const directory of filteredTestPlans) {
+      const tests = await createExampleTests({
         directory: path.join('tests', directory),
         args,
       }).catch(error => {
         error.directory = directory;
         throw error;
-      })
-    )
-  ).catch(error => {
+      });
+
+      filteredTests.push(tests);
+    }
+  } catch (error) {
     console.error(`ERROR: Unhandled exception thrown while processing "${error.directory}".`);
     if (!VERBOSE_CHECK) {
       console.log(
@@ -82,7 +86,7 @@ stacktrace: ${error.stack}
       `);
     }
     process.exit(1);
-  });
+  }
 
   /**
    * @param {number[]} values
