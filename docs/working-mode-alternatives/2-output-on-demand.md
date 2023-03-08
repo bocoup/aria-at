@@ -2,8 +2,6 @@
 
 The ARIA-AT working mode describes roles, responsibilities, and process for the primary community group deliverables -- assistive technology (AT) interoperability reports. It does not cover every aspect of community group operations.
 
-Note that while automated robot testers  will soon  play a role in the working mode, there role is not defined here. If the roles and responsibilities of humans are impacted by the needs of the robots, the working mode will be updated accordingly.
-
 The development of this revision  of the working mode was discussed in [issue 375](https://github.com/w3c/aria-at/issues/375). Please raise a new issue to provide feedback or discuss further revision.
  
 ## Roles
@@ -102,6 +100,9 @@ AT a high level, the process is broken into the following phases:
    * There are no open test plan issues.
 1. (Test Admin) If a recommended test plan does not have a report for all in-scope AT and browser combinations, add the missing test plan runs to the test queue.
 1. (Tester) Execute  all test plan runs in the test queue for the recommended test plan.
+   1. Initiate automated test output collection on a remote system provided by ARIA-AT.
+   1. Interpret correctness of the output.
+   1. Submit the test results (the output plus their interpretation).
 1. (Test Admin) Publish the reports for any [[test plan runs|Glossary#test-plan-run]] where there are [[equivalent test results|Glossary#equivalent-test-results]] from at least two testers using a [[comparable AT/Browser combination|Glossary#comparable-product-versions]].
 1. (Test Admin or AT Developer) For all commands where test results indicate an assertion is either not supported or incorrectly supported, file an interoperability bug against the AT.
 1. (AT developer) Resolve interoperability bugs; optionally integrate the aria-at test into AT build process.

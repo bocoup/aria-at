@@ -2,8 +2,6 @@
 
 The ARIA-AT working mode describes roles, responsibilities, and process for the primary community group deliverables -- assistive technology (AT) interoperability reports. It does not cover every aspect of community group operations.
 
-Note that while automated robot testers  will soon  play a role in the working mode, there role is not defined here. If the roles and responsibilities of humans are impacted by the needs of the robots, the working mode will be updated accordingly.
-
 The development of this revision  of the working mode was discussed in [issue 375](https://github.com/w3c/aria-at/issues/375). Please raise a new issue to provide feedback or discuss further revision.
  
 ## Roles
@@ -59,7 +57,7 @@ AT a high level, the process is broken into the following phases:
 
 ### Draft Test Plan Review
 
-1. (Tester) Review and run the tests in the draft test plan.
+1. (Tester) Review and run the tests in the draft test plan, optionally using the automated testing tool.
 1. (Tester) If  the plan is missing a test, raise an issue against the plan.
 1. (Tester) Raise an issue for any test in the plan that is incomplete, inaccurate, overly restrictive, excessively  prescriptive, does not satisfy editorial conventions, contains scripting bugs, or otherwise does not meet community group standards for tests.
 1. (Test Developer) Resolve issues raised against draft test plan. If an issue is due to a problem with the ARIA specification, the APG, a browser, or an OS-level accessibility API, then:
@@ -101,7 +99,7 @@ AT a high level, the process is broken into the following phases:
    * The test plan has been in candidate phase for at least 120 days.
    * There are no open test plan issues.
 1. (Test Admin) If a recommended test plan does not have a report for all in-scope AT and browser combinations, add the missing test plan runs to the test queue.
-1. (Tester) Execute  all test plan runs in the test queue for the recommended test plan.
+1. (Tester) Execute  all test plan runs in the test queue for the recommended test plan, optionally using the automated testing tool.
 1. (Test Admin) Publish the reports for any [[test plan runs|Glossary#test-plan-run]] where there are [[equivalent test results|Glossary#equivalent-test-results]] from at least two testers using a [[comparable AT/Browser combination|Glossary#comparable-product-versions]].
 1. (Test Admin or AT Developer) For all commands where test results indicate an assertion is either not supported or incorrectly supported, file an interoperability bug against the AT.
 1. (AT developer) Resolve interoperability bugs; optionally integrate the aria-at test into AT build process.

@@ -2,8 +2,6 @@
 
 The ARIA-AT working mode describes roles, responsibilities, and process for the primary community group deliverables -- assistive technology (AT) interoperability reports. It does not cover every aspect of community group operations.
 
-Note that while automated robot testers  will soon  play a role in the working mode, there role is not defined here. If the roles and responsibilities of humans are impacted by the needs of the robots, the working mode will be updated accordingly.
-
 The development of this revision  of the working mode was discussed in [issue 375](https://github.com/w3c/aria-at/issues/375). Please raise a new issue to provide feedback or discuss further revision.
  
 ## Roles
@@ -19,6 +17,7 @@ Test admin | Manage reporting database access,  support test plan review and con
 APG Task Force | Resolve issues in test cases based on examples in the WAI-ARIA Authoring Practices Guide.
 ARIA Working Group | Follow up on issues with the ARIA specification, browser implementations, or OS-level accessibility API implementations.
 At large web developers and interested parties | Utilize report data to identify  root causes of unexpected AT behaviors in web experiences. If a discrepancy indicates a potential error in ARIA-AT reports, raise an  issue against the appropriate  report.
+Bot | Create Test Plans.
 
 ## Process
 
@@ -100,7 +99,10 @@ AT a high level, the process is broken into the following phases:
 1. (Test Admin) Promote candidate test plan to [[recommended test plan|Glossary#recommended-test-plan]] when all the following conditions are met:
    * The test plan has been in candidate phase for at least 120 days.
    * There are no open test plan issues.
-1. (Test Admin) If a recommended test plan does not have a report for all in-scope AT and browser combinations, add the missing test plan runs to the test queue.
+1. (Bot) Add test plan runs to the test queue for all tests whose results are missing or outdated.
+   1. Initiate automated test output collection on a remote system provided by ARIA-AT.
+   1. Determine which tests need to be investigated by a Tester (i.e. their output has changed since the most recent manual run, or they have never been run manually).
+   1. Add the tests which require investigation to the test queue.
 1. (Tester) Execute  all test plan runs in the test queue for the recommended test plan.
 1. (Test Admin) Publish the reports for any [[test plan runs|Glossary#test-plan-run]] where there are [[equivalent test results|Glossary#equivalent-test-results]] from at least two testers using a [[comparable AT/Browser combination|Glossary#comparable-product-versions]].
 1. (Test Admin or AT Developer) For all commands where test results indicate an assertion is either not supported or incorrectly supported, file an interoperability bug against the AT.
