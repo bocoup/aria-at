@@ -68,21 +68,25 @@ A test plan includes all tests for a particular implementation of an ARIA design
 
 ### Test Plan Run
 
-Execution of all tests in a test plan with a specific assistive technology at a specific version using a specific browser at a specific version, e.g., run all tests in the checkbox test plan with JAWS X and Chrome Y. X and Y include minor version numbers.
+A complete set of AT responses and verdicts for all tests in a test plan with a specific assistive technology at a specific version using a specific browser at a specific version, e.g., the responses collected and verdicts assigned for the checkbox test plan with JAWS X and Chrome Y. X and Y include minor version numbers.
 
 ### Equivalent Test Results
 
 Some steps in ARIA-AT processes  require comparing results from two different executions of a given test **T** to determine if they are equivalent (agree with one another) or are conflicting (disagree with one another). For example, the process mitigates the likelihood of human error by having two people run the same test.
 
 Results **R1** and **R2** from test **T** are equivalent if:
-1. **R1** and **R2** contain identical assertion support for every command in T:
+1. **R1** and **R2** contain identical verdicts for every command in T:
    * Each assertion designated  as supported for a given command in **R1** is also designated as supported for that command in **R2**.
    * Each assertion designated  as not supported for a given command in **R1** is also designated as not supported for that command in **R2**.
    * Each assertion designated  as incorrectly supported for a given command in **R1** is also designated as incorrectly supported for that command in **R2**.
-2. **R1** and **R2** contain identical output for every command in test **T**, including unexpected excess output.
+2. **R1** and **R2** contain identical AT responses for every command in test **T**, including unexpected excess output.
 
 
 ## Working Mode Process Terms
+
+### AT response
+
+Any observed behavior of an assistive technology. For a screen reader, this includes vocalized text and changes to internal state.
 
 ### Draft Test Plan
 
@@ -112,3 +116,8 @@ Version **X** and version **Y** of a given AT/browser combination are comparable
 **X** and **Y** refer to different versions of the same AT and browser. For instance, if **X** refers to JAWS version **j1** and Chrome version **c1**, then **Y** must refer to a different pairing of JAWS and Chrom versions, e.g., JAWS **J2** and Chrome **c1**.
 Version comparability does not refer to comparison of a given AT when used with  two different browsers or a given browser when used with two different assistive technologies.
 
+### Verdict
+
+A Tester's interpretation of whether a given [assertion](#assertion) is satisfied by a given [AT response](#at-response); either "supported," "not supported," or "incorrectly supported."
+
+For instance, given the assertion, "State 'checked' is conveyed," and the AT response, "vocalized 'Deep dish radio button not checked'" at Tester might assign the verdict "incorrectly supported."
